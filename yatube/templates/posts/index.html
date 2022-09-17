@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-  <title>Последние обновления на сайте</title>
+  <title>Главная страница</title>
 {% endblock%}
 
 {% block main-header %}
@@ -8,14 +8,20 @@
 {% endblock%}
 
 {% block all-group-posts-link1 %}
-  <a href="group_list.html">все записи группы</a>
+  {% if post.group %}
+    <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+  {% endif %}
 {% endblock%}
 
 {% block all-group-posts-link2 %}
-  <a href="group_list.html">все записи группы</a>
+  {% if post.group %}
+    <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+  {% endif %}
 {% endblock%}
 
 {% block all-group-posts-link3 %}
-  <a href="group_list.html">все записи группы</a>
+  {% if post.group %}
+    <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+  {% endif %}
 {% endblock%}
 
