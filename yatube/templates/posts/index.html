@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-  Главная страница
+  Последние обновления на сайте
 {% endblock%}
 {% block content %}
 <h1>Последние обновления на сайте</h1>
@@ -8,7 +8,7 @@
 <article>
   <ul>
     <li>
-      Автор: {{post.group}}
+      Автор: {{post.author.get_full_name}}
     </li>
     <li>
       Дата публикации: {{post.pub_date}}
@@ -17,7 +17,7 @@
   <p>{{post.text}}</p>
 </article>
 {% if post.group %}
-  <a href="{% url 'posts:groups' post.group.slug %}">все записи группы</a>
+  <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
 {% endif %}
 <hr>
 {% endfor %}
