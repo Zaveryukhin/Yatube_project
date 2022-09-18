@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
 {% block title %}
-  <title>Лев Толстой</title>
+  Записи сообщества {{group}}
 {% endblock%}
 
-{% block main-header %}
-  <h1>Лев Толстой – зеркало русской революции.</h1>
+{% block content %}
+<h1>{{group.title}}</h1>
+<p>{{group.description}}</p>
+{% for post in posts %}
+<article>
+  <ul>
+    <li>
+      Автор: {{post.group}}
+    </li>
+    <li>
+      Дата публикации: {{post.pub_date}}
+    </li>
+  </ul>
+  <p>{{post.text}}</p>
+</article>
+<hr>
+
+{% endfor %}
+
 {% endblock%}
 
-{% block group-name %}
-  <p>Группа тайных поклонников графа.</p>
-{% endblock%}
+
+
 
